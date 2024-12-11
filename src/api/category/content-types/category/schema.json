@@ -32,10 +32,10 @@
       "relation": "oneToOne",
       "target": "api::slider.slider"
     },
-    "doctor": {
+    "physician": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::doctor.doctor",
+      "target": "api::physician.physician",
       "inversedBy": "categories"
     }
   }

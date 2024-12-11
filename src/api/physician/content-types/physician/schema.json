@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "physicians",
+  "info": {
+    "singularName": "physician",
+    "pluralName": "physicians",
+    "displayName": "Physician"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DoctorName": {
+      "type": "string",
+      "required": true
+    },
+    "DoctorAddress": {
+      "type": "string",
+      "required": true
+    },
+    "DoctorPatients": {
+      "type": "string",
+      "required": true
+    },
+    "YearOfExperience": {
+      "type": "string"
+    },
+    "TimeStart": {
+      "type": "time",
+      "required": true
+    },
+    "TimeEnd": {
+      "type": "time",
+      "required": true
+    },
+    "AboutDoctorr": {
+      "type": "richtext",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "physician"
+    },
+    "DoctorPhone": {
+      "type": "string",
+      "required": true
+    },
+    "Photo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "ProDoctor": {
+      "type": "boolean"
+    }
+  }
+}

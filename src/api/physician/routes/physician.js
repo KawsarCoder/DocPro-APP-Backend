@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * doctor router
+ * physician router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::doctor.doctor');
+module.exports = createCoreRouter('api::physician.physician');

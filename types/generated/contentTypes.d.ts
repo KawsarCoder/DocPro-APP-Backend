@@ -417,7 +417,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    doctor: Schema.Attribute.Relation<'manyToOne', 'api::doctor.doctor'>;
     hospitals: Schema.Attribute.Relation<'oneToOne', 'api::slider.slider'>;
     Icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
@@ -428,6 +427,10 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
+    physician: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::physician.physician'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -435,20 +438,18 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
-  collectionName: 'doctors';
+export interface ApiPhysicianPhysician extends Struct.CollectionTypeSchema {
+  collectionName: 'physicians';
   info: {
-    description: '';
-    displayName: 'Doctor';
-    pluralName: 'doctors';
-    singularName: 'doctor';
+    displayName: 'Physician';
+    pluralName: 'physicians';
+    singularName: 'physician';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    About: Schema.Attribute.Blocks;
-    Address: Schema.Attribute.String & Schema.Attribute.Required;
+    AboutDoctorr: Schema.Attribute.RichText & Schema.Attribute.Required;
     categories: Schema.Attribute.Relation<
       'oneToMany',
       'api::category.category'
@@ -456,25 +457,29 @@ export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    EndTime: Schema.Attribute.Time;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.Required;
+    DoctorAddress: Schema.Attribute.String & Schema.Attribute.Required;
+    DoctorName: Schema.Attribute.String & Schema.Attribute.Required;
+    DoctorPatients: Schema.Attribute.String & Schema.Attribute.Required;
+    DoctorPhone: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::doctor.doctor'
+      'api::physician.physician'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String & Schema.Attribute.Required;
-    Patiants: Schema.Attribute.String;
-    Phone: Schema.Attribute.String & Schema.Attribute.Required;
-    Premium: Schema.Attribute.Boolean;
+    Photo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
+    ProDoctor: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
-    StartTime: Schema.Attribute.Time;
+    TimeEnd: Schema.Attribute.Time & Schema.Attribute.Required;
+    TimeStart: Schema.Attribute.Time & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Year_of_Experience: Schema.Attribute.String;
+    YearOfExperience: Schema.Attribute.String;
   };
 }
 
@@ -1019,7 +1024,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::appointment.appointment': ApiAppointmentAppointment;
       'api::category.category': ApiCategoryCategory;
-      'api::doctor.doctor': ApiDoctorDoctor;
+      'api::physician.physician': ApiPhysicianPhysician;
       'api::slider.slider': ApiSliderSlider;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
