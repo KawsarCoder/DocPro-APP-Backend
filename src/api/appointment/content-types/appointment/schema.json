@@ -4,7 +4,8 @@
   "info": {
     "singularName": "appointment",
     "pluralName": "appointments",
-    "displayName": "Appointment"
+    "displayName": "Appointment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,6 +35,12 @@
     },
     "Note": {
       "type": "richtext"
+    },
+    "physician": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::physician.physician",
+      "inversedBy": "appointments"
     }
   }
 }

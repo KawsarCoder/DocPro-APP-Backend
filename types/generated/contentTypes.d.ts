@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAppointmentAppointment extends Struct.CollectionTypeSchema {
   collectionName: 'appointments';
   info: {
+    description: '';
     displayName: 'Appointment';
     pluralName: 'appointments';
     singularName: 'appointment';
@@ -393,6 +394,10 @@ export interface ApiAppointmentAppointment extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     Note: Schema.Attribute.RichText;
+    physician: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::physician.physician'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     Time: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -450,6 +455,10 @@ export interface ApiPhysicianPhysician extends Struct.CollectionTypeSchema {
   };
   attributes: {
     AboutDoctorr: Schema.Attribute.RichText & Schema.Attribute.Required;
+    appointments: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::appointment.appointment'
+    >;
     categories: Schema.Attribute.Relation<
       'oneToMany',
       'api::category.category'

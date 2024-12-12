@@ -61,6 +61,12 @@
     },
     "ProDoctor": {
       "type": "boolean"
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "physician"
     }
   }
 }
