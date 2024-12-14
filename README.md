@@ -1,12 +1,16 @@
-# 🚀 Getting started with Strapi
+# 🚀 Getting started with DocPro Backend
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+DocPro's backend is built using [Strapi](https://strapi.io), a powerful and flexible headless CMS. This guide will help you set up, develop, and deploy the backend efficiently.
+
+## Development Scripts
+
+Strapi provides a feature-rich [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) for managing your project.
 
 ### `develop`
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+Start your Strapi application with autoReload enabled for local development.
 
-```
+```bash
 npm run develop
 # or
 yarn develop
@@ -14,9 +18,9 @@ yarn develop
 
 ### `start`
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+Run your Strapi application with autoReload disabled for production.
 
-```
+```bash
 npm run start
 # or
 yarn start
@@ -24,39 +28,85 @@ yarn start
 
 ### `build`
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+Build the admin panel for production.
 
-```
+```bash
 npm run build
 # or
 yarn build
 ```
 
-## ⚙️ Deployment
+## Deployment
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+DocPro Backend can be deployed on various platforms. For our setup, the backend is hosted on [Render](https://render.com), but Strapi also supports deployments on platforms like AWS, Heroku, and DigitalOcean.
 
+**Client Live Link:** [DocPro Frontend](https://docpro-app.vercel.app/)
+
+**Server Live Link:** [DocPro Backend](https://docpro-app-backend.onrender.com/)
+
+**Client Github Link:** [Frontend Github](https://github.com/KawsarCoder/DocPro-App)
+
+**Server Github Link:** [Backend Backend](https://github.com/KawsarCoder/DocPro-APP-Backend)
+
+### Build and Deploy
+
+For Render or similar services, ensure that:
+
+1. Environment variables are correctly set, including:
+   - `DATABASE_URL` (PostgreSQL or other database connection string)
+   - `CLOUDINARY_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` (for image storage)
+2. The Strapi build command is executed during deployment:
+
+```bash
+yarn build
 ```
-yarn strapi deploy
-```
 
-## 📚 Learn more
+For detailed deployment instructions, refer to the [deployment section of the Strapi documentation](https://docs.strapi.io/dev-docs/deployment).
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+## Features
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+- **Authentication**: Built-in role-based authentication system.
+- **Image Management**: Integrated with Cloudinary for efficient media storage and retrieval.
+- **Custom API Endpoints**: Supports filtering and relationship population.
+- **Scalability**: Suitable for growing applications with modular architecture.
 
-## ✨ Community
+## 📚 Learn More
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+- [Strapi Resource Center](https://strapi.io/resource-center) - Comprehensive guides and resources.
+- [Strapi Documentation](https://docs.strapi.io) - Official documentation.
+- [Strapi Tutorials](https://strapi.io/tutorials) - Tutorials by the core team and the community.
+- [Strapi Blog](https://strapi.io/blog) - News, updates, and tips.
+- [Strapi GitHub Repository](https://github.com/strapi/strapi) - Source code and contributions.
 
----
+## ✨ Community Support
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
-# DocPro-APP-Backend
+- [Discord](https://discord.strapi.io) - Join the Strapi community for discussions and help.
+- [Forum](https://forum.strapi.io) - Share ideas, ask questions, and find answers.
+- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - Curated list of awesome tools and projects related to Strapi.
+
+## Contributing to the Backend
+
+If you want to contribute to the DocPro backend, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+4. Push the branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+
+For issues or inquiries, feel free to reach out at [support@docpro.com](https://md-kawsar.netlify.app/).
